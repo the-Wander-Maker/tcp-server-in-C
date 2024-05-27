@@ -24,11 +24,11 @@ int __cdecl main(void)
     SOCKET ClientSocket = INVALID_SOCKET;
 
     struct addrinfo* result = NULL;
-    struct addrinfo hints;
+    struct addrinfo  hints;
 
-    int iSendResult;
+    int  iSendResult;
     char recvbuf[DEFAULT_BUFLEN];
-    int recvbuflen = DEFAULT_BUFLEN;
+    int  recvbuflen = DEFAULT_BUFLEN;
 
     // Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -38,10 +38,10 @@ int __cdecl main(void)
     }
 
     ZeroMemory(&hints, sizeof(hints));
-    hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
-    hints.ai_protocol = IPPROTO_TCP;
-    hints.ai_flags = AI_PASSIVE;
+    hints.ai_family     = AF_INET;
+    hints.ai_socktype   = SOCK_STREAM;
+    hints.ai_protocol   = IPPROTO_TCP;
+    hints.ai_flags      = AI_PASSIVE;
 
     // Resolve the server address and port
     iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
